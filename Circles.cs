@@ -41,8 +41,10 @@ namespace CoinsActivity
                         circle.Radius
                     ));
 
+                    // draw circle outline
                     CvInvoke.Circle(sourceImage, new Point((int)circle.Center.X, (int)circle.Center.Y), (int)circle.Radius, new MCvScalar(0, 255, 0), 2);
 
+                    // draw radius text
                     string radiusText = circle.Radius.ToString("F2");
                     int[] baseline = new int[1];
                     Size textSize = CvInvoke.GetTextSize(radiusText, FontFace.HersheySimplex, 0.7, 2, ref baseline[0]);
