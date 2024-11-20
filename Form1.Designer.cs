@@ -87,7 +87,7 @@
             pnBase.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             pnBase.RowStyles.Add(new RowStyle());
             pnBase.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            pnBase.Size = new Size(432, 513);
+            pnBase.Size = new Size(432, 665);
             pnBase.TabIndex = 0;
             // 
             // pnImage
@@ -103,7 +103,7 @@
             pnImage.RowCount = 2;
             pnImage.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             pnImage.RowStyles.Add(new RowStyle());
-            pnImage.Size = new Size(400, 411);
+            pnImage.Size = new Size(400, 563);
             pnImage.TabIndex = 0;
             // 
             // pbImage
@@ -113,7 +113,7 @@
             pbImage.Location = new Point(0, 0);
             pbImage.Margin = new Padding(0);
             pbImage.Name = "pbImage";
-            pbImage.Size = new Size(400, 367);
+            pbImage.Size = new Size(400, 519);
             pbImage.SizeMode = PictureBoxSizeMode.Zoom;
             pbImage.TabIndex = 0;
             pbImage.TabStop = false;
@@ -127,7 +127,7 @@
             pnButtons.Controls.Add(btnChooseImage, 0, 0);
             pnButtons.Controls.Add(btnCount, 1, 0);
             pnButtons.Dock = DockStyle.Fill;
-            pnButtons.Location = new Point(0, 367);
+            pnButtons.Location = new Point(0, 519);
             pnButtons.Margin = new Padding(0);
             pnButtons.Name = "pnButtons";
             pnButtons.RowCount = 1;
@@ -168,7 +168,7 @@
             pnResult.Controls.Add(pnTotal, 0, 1);
             pnResult.Dock = DockStyle.Fill;
             pnResult.Enabled = false;
-            pnResult.Location = new Point(16, 443);
+            pnResult.Location = new Point(16, 595);
             pnResult.Margin = new Padding(0);
             pnResult.Name = "pnResult";
             pnResult.RowCount = 2;
@@ -479,7 +479,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(432, 513);
+            ClientSize = new Size(432, 665);
             Controls.Add(pnBase);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;

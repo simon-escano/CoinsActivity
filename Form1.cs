@@ -1,3 +1,6 @@
+using static CoinsActivity.Circles;
+using System.Windows.Forms;
+
 namespace CoinsActivity
 {
     public partial class Form1 : Form
@@ -28,12 +31,44 @@ namespace CoinsActivity
             }
 
             pnResult.Enabled = true;
-            showTotal(Coins.Count(new Bitmap(pbImage.Image), pbImage));
+
+            int c5 = 0, c10 = 0, c25 = 0, p1 = 0, p5 = 0, p10 = 0;
+            List<Circle> circles = Circles.Detect(pbImage);
+
+            foreach (var circle in circles)
+            {
+
+                if (circle.Radius <= 29.4)
+                {
+                    c5++;
+                }
+                else if (circle.Radius <= 32.3)
+                {
+                    c10++;
+                }
+                else if (circle.Radius <= 38.5)
+                {
+                    c25++;
+                }
+                else if (circle.Radius <= 45.1)
+                {
+                    p1++;
+                }
+                else if (circle.Radius <= 50.5)
+                {
+                    p5++;
+                }
+                else
+                {
+                    p10++;
+                }
+            }
+
+            showTotal(c5, c10, c25, p1, p5, p10);
         }
 
-        private void showTotal((int c5, int c10, int c25, int p1, int p5, int p10) denominations)
+        private void showTotal(int c5, int c10, int c25, int p1, int p5, int p10)
         {
-            var (c5, c10, c25, p1, p5, p10) = denominations;
             tbC5.Text = c5.ToString();
             tbC10.Text = c10.ToString();
             tbC25.Text = c25.ToString();
