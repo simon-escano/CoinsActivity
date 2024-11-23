@@ -12,7 +12,7 @@ namespace CoinsActivity
 
         private void btnChooseImage_Click(object sender, EventArgs e)
         {
-            using OpenFileDialog dialog = new OpenFileDialog { Filter = "Image Files|*.jpg;*.jpeg;*.png;" };
+            using var dialog = new OpenFileDialog { Filter = "Image Files|*.jpg;*.jpeg;*.png;" };
             if (dialog.ShowDialog() == DialogResult.OK)
                 pbImage.Image = Image.FromFile(dialog.FileName);
         }
@@ -42,20 +42,20 @@ namespace CoinsActivity
 
         private void showTotal(Coins coins)
         {
-            tbC5.Text = coins["c5"].count.ToString();
-            tbC10.Text = coins["c10"].count.ToString();
-            tbC25.Text = coins["c25"].count.ToString();
-            tbP1.Text = coins["p1"].count.ToString();
-            tbP5.Text = coins["p5"].count.ToString();
-            tbP10.Text = coins["p10"].count.ToString();
-            tbTotal.Text = coins.GetTotal().ToString();
+            tbC5.Text = $"{coins["c5"].count}";
+            tbC10.Text = $"{coins["c10"].count}";
+            tbC25.Text = $"{coins["c25"].count}";
+            tbP1.Text = $"{coins["p1"].count}";
+            tbP5.Text = $"{coins["p5"].count}";
+            tbP10.Text = $"{coins["p10"].count}";
+            tbTotal.Text = $"{coins.GetTotal()}";
         }
     }
 
     public class Coins : List<Coin>
     {
         public Coins(params Coin[] coins) : base(coins) { }
-        public Coin this[string denomination] => this.FirstOrDefault(c => c.Denomination == denomination) ?? new(denomination, 0);
+        public Coin this[string d] => this.FirstOrDefault(c => c.Denomination == d) ?? new(d, 0);
         public float GetTotal() => this.Sum(c => c.Total);
     }
 
@@ -64,8 +64,7 @@ namespace CoinsActivity
         public string Denomination { get; }
         public float Amount { get; }
         public int count;
-
-        public Coin(string denomination, float amount) => (Denomination, Amount) = (denomination, amount);
+        public Coin(string d, float a) => (Denomination, Amount) = (d, a);
         public float Total => Amount * count;
     }
 }
